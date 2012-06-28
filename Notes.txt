@@ -1,0 +1,2 @@
+karl_w_w: just have 1 frame which gets cleu, first thing you do in the handling function is check if the combat log event is one that you care about
+[04:54]	karl_w_w: at that stage you can decide if kills or spells aren't important at the moment

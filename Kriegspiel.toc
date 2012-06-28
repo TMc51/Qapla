@@ -1,0 +1,11 @@
+## Interface: 40300
+## Title: Kriegspiel
+## Notes: This addon combines nckillingblow, bgkillingblow, afterkill, ncspellalert into one addon.
+## Author: TMcMahon51
+## Version: 0.0.1 [Pre-Alpha]
+
+Config.lua
+Spells.lua
+Emotes.lua
+Oneliners.lua
+Core.lua
