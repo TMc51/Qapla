@@ -15,7 +15,6 @@ local playerid
 local msg
 
 
-
 --------------------------------------------------------------------------------------------
 -- ZOMG CLASS COLOURS! °o°
 --------------------------------------------------------------------------------------------
@@ -24,7 +23,6 @@ local function isenemy(flags) return band(flags, enemy)==enemy end
 local function tohex(val) return string.format("%.2x", val) end
 local function getclasscolor(class) local color = RAID_CLASS_COLORS[class] if not color then return "ffffff" end return tohex(color.r*255)..tohex(color.g*255)..tohex(color.b*255) end
 local function colorize(name) if name then return "|cff"..getclasscolor(select(2,UnitClass(name)))..name.."|r" else return nil end end
-
 
 
 --------------------------------------------------------------------------------------------
@@ -58,7 +56,6 @@ local function CreateAlertFrame(name)
 end
 
 
-
 --------------------------------------------------------------------------------------------
 -- Killing Blow Message Frame
 --------------------------------------------------------------------------------------------
@@ -76,7 +73,6 @@ local function SetUpTracker()
 end
 
 
-
 --------------------------------------------------------------------------------------------
 -- Here are our alert frames
 --------------------------------------------------------------------------------------------
@@ -85,7 +81,6 @@ local spell = createmessageframe("SpellAlertFrame")
 spell:SetPoint("TOP", 0, -200)
 local buff = createmessageframe("BuffAlertFrame")
 buff:SetPoint("BOTTOM", spell, "TOP", 0, 2)
-
 
 
 --------------------------------------------------------------------------------------------
@@ -123,7 +118,6 @@ local function isallowedunit(unit)
 	end
 	return false
 end
-
 
 
 --------------------------------------------------------------------------------------------
@@ -176,23 +170,26 @@ function ncSpellalert:UNIT_SPELLCAST_SUCCEEDED(event, unit, spell, rank)
 end
 
 
-
-
-
-
 --------------------------------------------------------------------------------------------
 -- Here be slash commands
 --------------------------------------------------------------------------------------------
 
-SLASH_AK1 = '/LI'
+SLASH_AK1 = '/AK'
 local function handler(msg)
- if msg == 'on' then
-  tracker:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
- else
-  tracker:UnregisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
- end
+	if msg == 'on' then
+		tracker:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
+		print("AfterKill is now enabled.")
+	
+elseif
+		msg == 'off' then
+			tracker:UnregisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
+			print("AfterKill is now disabled.")
+	
+else
+		print("Only '/ak on', and '/ak off' are valid commands.")
+	end
 end
-SlashCmdList["LI"] = handler
+SlashCmdList["AK"] = handler
 
 
 
@@ -203,9 +200,10 @@ SlashCmdList["LI"] = handler
 EventFrame:SetScript("OnEvent", function(self, event, ...)
 		if event == "PLAYER_LOGIN" then
 				playerid = UnitGUID("player")
+				CreateMsgFrame()
 				SetUpTracker()
 		end
 end
 
-ncSpellalert:SetScript("OnEvent", function(self, event, ...) self[event](self, event, ...) end)
-ncSpellalert:RegisterEvent("PLAYER_LOGIN")
+Spellalert:SetScript("OnEvent", function(self, event, ...) self[event](self, event, ...) end)
+Spellalert:RegisterEvent("PLAYER_LOGIN")
