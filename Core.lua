@@ -88,8 +88,8 @@ buff:SetPoint("BOTTOM", spell, "TOP", 0, 2)
 --------------------------------------------------------------------------------------------
 
 -- Check to make sure PVP Only is selected via config
-function ncSpellalert:PLAYER_LOGIN()
-	if ncSpellalertDB.CONFIG.pvponly then
+function Spellalert:PLAYER_LOGIN()
+	if SpellalertDB.CONFIG.pvponly then
 		self:RegisterEvent("ZONE_CHANGED_NEW_AREA")
 		self:ZONE_CHANGED_NEW_AREA()
 	else
@@ -100,7 +100,7 @@ function ncSpellalert:PLAYER_LOGIN()
 end
 
 -- If yes, activated only in BGs, otherwise always active
-function ncSpellalert:ZONE_CHANGED_NEW_AREA()
+function Spellalert:ZONE_CHANGED_NEW_AREA()
 	local pvp = GetZonePVPInfo()
 	if not pvp or pvp ~= "sanctuary" then
 		self:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
@@ -125,7 +125,7 @@ end
 --------------------------------------------------------------------------------------------
 
 -- Scan for spell casts
-function ncSpellalert:COMBAT_LOG_EVENT_UNFILTERED(event, timestamp, eventType, hideCaster, sourceGUID, sourcename, sourceFlags, destGUID, destname, destFlags, spellid, spellname)
+function Spellalert:COMBAT_LOG_EVENT_UNFILTERED(event, timestamp, eventType, hideCaster, sourceGUID, sourcename, sourceFlags, destGUID, destname, destFlags, spellid, spellname)
 	if (spellname==deathcoil and select(2, UnitClass(sourceGUID))=="DEATHKNIGHT") or spellid == 59752 or spellid == 42292 or spellid == 7744 then return end -- ignores
 
 	if eventType == "SPELL_AURA_APPLIED" and ncSpellalertDB.BUFF_SPELLS[spellname] and isenemy(destFlags) and (ncSpellalertDB.CONFIG.allunits or isallowedunit(destname)) then
@@ -133,9 +133,9 @@ function ncSpellalert:COMBAT_LOG_EVENT_UNFILTERED(event, timestamp, eventType, h
 	elseif eventType == "SPELL_CAST_START" and isenemy(sourceFlags) and (ncSpellalertDB.CONFIG.allunits or isallowedunit(sourcename)) then
 		local color		
 		
-		if ncSpellalertDB.HARMFUL_SPELLS[spellname] then
+		if SpellalertDB.HARMFUL_SPELLS[spellname] then
 			color = "ff0000"
-		elseif ncSpellalertDB.HEALING_SPELLS[spellname] then
+		elseif SpellalertDB.HEALING_SPELLS[spellname] then
 			color = "ffff00"
 		end
 		
@@ -154,7 +154,7 @@ function ncSpellalert:COMBAT_LOG_EVENT_UNFILTERED(event, timestamp, eventType, h
 end
 
 -- Print successful casts
-function ncSpellalert:UNIT_SPELLCAST_SUCCEEDED(event, unit, spell, rank)
+function Spellalert:UNIT_SPELLCAST_SUCCEEDED(event, unit, spell, rank)
 	event = special[spell]
 	if event and UnitIsEnemy("player", unit) then
 		if event == 1 then
@@ -174,22 +174,35 @@ end
 -- Here be slash commands
 --------------------------------------------------------------------------------------------
 
-SLASH_AK1 = '/AK'
+SLASH_AK1 = '/QA'
 local function handler(msg)
+
 	if msg == 'on' then
+	
 		tracker:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
 		print("AfterKill is now enabled.")
-	
+		
 elseif
+
 		msg == 'off' then
 			tracker:UnregisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
 			print("AfterKill is now disabled.")
+			
+elseif
+
+		msg == 'config' then
+			tracker:UnregisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
+
 	
 else
-		print("Only '/ak on', and '/ak off' are valid commands.")
+
+		print("Only '/qa on', '/qa off', and '/qa config' are valid commands.")
+		
 	end
+	
 end
-SlashCmdList["AK"] = handler
+
+SlashCmdList["QA"] = handler
 
 
 

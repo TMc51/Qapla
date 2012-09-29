@@ -1,4 +1,6 @@
-ncSpellalertDB.HARMFUL_SPELLS = {
+SpellalertDBDB = {}
+
+SpellalertDB.HARMFUL_SPELLS = {
 	-- Priest
 	[GetSpellInfo(605)] = 1, 	-- Mind Control
 	[GetSpellInfo(8092)] = 1, 	-- Mind Blast
@@ -108,7 +110,7 @@ ncSpellalertDB.HARMFUL_SPELLS = {
 	[GetSpellInfo(1160)] = 0,	-- Demoralizing Shout
 }
 
-ncSpellalertDB.HEALING_SPELLS = {
+SpellalertDB.HEALING_SPELLS = {
 	-- Priest
 	[GetSpellInfo(32546)] = 1, 	-- Binding Heal
 	[GetSpellInfo(34861)] = 1, 	-- Circle of Healing
@@ -161,7 +163,7 @@ ncSpellalertDB.HEALING_SPELLS = {
 	[GetSpellInfo(55694)] = 1,	-- Enraged Regeneration
 }
 
-ncSpellalertDB.BUFF_SPELLS = {
+SpellalertDB.BUFF_SPELLS = {
 	-- Druid
 --	[GetSpellInfo(16810)] = 1, -- Nature's Grasp,
 	[GetSpellInfo(17116)] = 1, -- Nature's Swiftness,

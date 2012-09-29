@@ -33,4 +33,69 @@ TrashTalkDB.HEALING_SPELLS = {
 	
 	-- Warrior
 	[GetSpellInfo(55694)] = 1,	-- Enraged Regeneration
+	
+	-- Rogue
+	
+	-- DK
+	
+	-- Hunter
+	
+	-- Warlock
+	
+	-- Monk
+	
+	-- Mage
+	
+	
+}
+
+TrashTalkDB.CC_SPELLS = {
+	-- Priest
+	
+	-- Rogue
+	
+	-- DK
+	
+	-- Paladin
+	
+	-- Monk
+	
+	-- Hunter
+	
+	-- Warlock
+	
+	-- Mage
+	
+	-- Shaman
+	
+	-- Druid
+	
+	-- Warrior
+	
+}
+
+TrashTalkDB.DMG_SPELLS = {
+
+	-- Priest
+	
+	-- Rogue
+	
+	-- DK
+	
+	-- Paladin
+	
+	-- Monk
+	
+	-- Hunter
+	
+	-- Warlock
+	
+	-- Mage
+	
+	-- Shaman
+	
+	-- Druid
+	
+	-- Warrior
+	
 }
