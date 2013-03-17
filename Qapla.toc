@@ -1,8 +1,15 @@
 ## Interface: 40300
 ## Title: Qapla
-## Notes: This addon combines nckillingblow, bgkillingblow, afterkill, ncspellalert into one addon.
-## Author: TMcMahon51
+## Notes: This addon combines nckillingblow, Afterkill, ncSpellAlert into one addon.
+## Author: Timothy M. McMahon aka Coote of KT
+## X-Website: http://coote.wowinterface.com
+## X-Embeds: Ace3
+## OptionalDeps: Ace3
 ## Version: 0.0.1 [Pre-Alpha]
+## SavedVariables: Qapla
+## SavedVariablesPerCharacter: QaplaCharDB
+
+Embeds.xml
 
 Config.lua
 Spells.lua

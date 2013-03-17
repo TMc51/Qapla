@@ -1,6 +1,19 @@
 SpellalertDBDB = {}
 
 SpellalertDB.HARMFUL_SPELLS = {
+	-- Monk
+	[GetSpellInfo(605)] = 1, 	-- Mind Control
+	[GetSpellInfo(8092)] = 1, 	-- Mind Blast
+	[GetSpellInfo(14914)] = 1, 	-- Holy Fire
+	[GetSpellInfo(8122)] = 1, 	-- Psychic Scream
+	[GetSpellInfo(9484)] = 1, 	-- Shackle Undead
+	[GetSpellInfo(64044)] = 1, 	-- Psychic Horror
+	[GetSpellInfo(8129)] = 1, 	-- Mana Burn
+	[GetSpellInfo(585)] = 1, 	-- Smite
+	[GetSpellInfo(34919)] = 1, 	-- Vampiric Touch
+	[GetSpellInfo(48045)] = 1, 	-- Mind Sear
+	[GetSpellInfo(73510)] = 1, 	-- Mind Spike
+
 	-- Priest
 	[GetSpellInfo(605)] = 1, 	-- Mind Control
 	[GetSpellInfo(8092)] = 1, 	-- Mind Blast
@@ -111,6 +124,19 @@ SpellalertDB.HARMFUL_SPELLS = {
 }
 
 SpellalertDB.HEALING_SPELLS = {
+	-- Monk
+	[GetSpellInfo(605)] = 1, 	-- Mind Control
+	[GetSpellInfo(8092)] = 1, 	-- Mind Blast
+	[GetSpellInfo(14914)] = 1, 	-- Holy Fire
+	[GetSpellInfo(8122)] = 1, 	-- Psychic Scream
+	[GetSpellInfo(9484)] = 1, 	-- Shackle Undead
+	[GetSpellInfo(64044)] = 1, 	-- Psychic Horror
+	[GetSpellInfo(8129)] = 1, 	-- Mana Burn
+	[GetSpellInfo(585)] = 1, 	-- Smite
+	[GetSpellInfo(34919)] = 1, 	-- Vampiric Touch
+	[GetSpellInfo(48045)] = 1, 	-- Mind Sear
+	[GetSpellInfo(73510)] = 1, 	-- Mind Spike
+
 	-- Priest
 	[GetSpellInfo(32546)] = 1, 	-- Binding Heal
 	[GetSpellInfo(34861)] = 1, 	-- Circle of Healing
@@ -164,6 +190,19 @@ SpellalertDB.HEALING_SPELLS = {
 }
 
 SpellalertDB.BUFF_SPELLS = {
+	-- Monk
+	[GetSpellInfo(605)] = 1, 	-- Mind Control
+	[GetSpellInfo(8092)] = 1, 	-- Mind Blast
+	[GetSpellInfo(14914)] = 1, 	-- Holy Fire
+	[GetSpellInfo(8122)] = 1, 	-- Psychic Scream
+	[GetSpellInfo(9484)] = 1, 	-- Shackle Undead
+	[GetSpellInfo(64044)] = 1, 	-- Psychic Horror
+	[GetSpellInfo(8129)] = 1, 	-- Mana Burn
+	[GetSpellInfo(585)] = 1, 	-- Smite
+	[GetSpellInfo(34919)] = 1, 	-- Vampiric Touch
+	[GetSpellInfo(48045)] = 1, 	-- Mind Sear
+	[GetSpellInfo(73510)] = 1, 	-- Mind Spike
+	
 	-- Druid
 --	[GetSpellInfo(16810)] = 1, -- Nature's Grasp,
 	[GetSpellInfo(17116)] = 1, -- Nature's Swiftness,
